@@ -7,5 +7,7 @@ public class Main {
 	    short a = 32767, b = 32767, c = 3;
 	    c = (short) (a + b);
         System.out.println(c);
+        System.out.println(c);
+
     }
 }
