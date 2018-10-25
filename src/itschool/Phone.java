@@ -7,14 +7,11 @@ public class Phone
     private int freqeuncyMHz;
     private float megapixels;
     private int errorCode;
-
-    enum Cat {
-        Leopard, Puma, Lion, Tiger, Manul
-    }
+//  TODO    Добавить использование перечислений для получения описания ошибки по её коду по примеру class Example2 отсюда:  https://proft.me/2015/03/29/primer-raboty-s-perechisleniyami-enum-v-java/
 
     public Phone()
     {
-
+//  TODO    Добавить присвоение значений по умолчанию с установкой соответствующего кода ошибки
     }
 
     public Phone(String model, int coresNumber, int freqeuncyMHz, float megapixels)
@@ -47,7 +44,8 @@ public class Phone
         else
         {
             this.freqeuncyMHz = 1000;
-            this.errorCode = 1; // replace with Enum
+            this.errorCode = 1;
+// TODO     заменить использование признака ошибки на битовую маску     https://ru.wikipedia.org/wiki/Битовое_поле
         }
         return  result;
     }
