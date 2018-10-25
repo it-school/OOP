@@ -1,110 +1,49 @@
 package itschool;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
-public class Main {
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Phone phone = new Phone();
 
-    public static void main(String[] args) {
+        int freq = 0;
+        phone.setCoresNumber(4);
+        do {
+            freq  = (int)(Math.random()* 3000);
+            System.out.println( freq);
+        } while (!phone.setFreqeuncyMHz(freq));
+
+
+        phone.setMegapixels(10);
+        phone.setModel("Samsung J7");
+
+        System.out.println("\nPhone model: " + phone.getModel());
+        System.out.println("frequemcy: " + phone.getFreqeuncyMHz());
+        System.out.println("cores number: " + phone.getCoresNumber());
+        System.out.println("camera megapixels: "+ phone.getMegapixels());
+
+
+        Phone phone2;
+
+        do {
+            freq  = (int)(Math.random()* 2000);
+            phone2 = new Phone("HTC", 4, freq  , 12);
+            System.out.println(phone2.toString());
+        } while (phone2.getErrorCode() > 0);
 /*
-        final int SIZE = 4;
-        int r = 0, c = 0, n = 1, dC = 1, dR = 0;
-
-        int[][] array = new int[SIZE][SIZE];
-        for (int i = 0; i < SIZE; i++) {
-            Arrays.fill(array[i], 0);
-        }
-
-        for (int i = 0; i < SIZE * SIZE; i++) {
-            array[r][c] = n++;
-            r += dR;
-            c += dC;
-
-            if (c == -1 || (r <= SIZE && dR == 1 && array[r][c] != 0)) {
-                dC = 0;
-                dR = -1;
-                c++;
-            }
-
-            if (r == -1 || array[r][c] != 0) {
-                dC = 1;
-                dR = 0;
-                r++;
-            }
-
-            if (array[r][c] != 0 || c == SIZE-1) {
-                dC = 0;
-                dR = 1;
-            }
-
-            if (array[r][c] != 0 || r == SIZE) {
-                dC = -1;
-                dR = 0;
-            }
-
-
-            for (int q = 0; q < SIZE; q++) {
-                for (int w = 0; w < SIZE; w++) {
-                    System.out.print(array[q][w] + "\t");
-                }
-                System.out.println();
-            }
-            System.out.println();
-
-        }
-*/
-        final int SIZE = 100;
-        int[] a = new int [SIZE];
-        int[] b = new int [SIZE];
-
-        for (int i = 0; i < SIZE; i++) {
-            a[i] = (int)(Math.random()*100);
-        }
-
-        System.out.println(Arrays.toString(a));
-
-        Arrays.sort(a);
-
-        System.out.println(Arrays.toString(a));
-/*
-        for (int item : a)
-        {
-            if (item % 2 == 0)
-                System.out.println(item);
-        }
+        System.out.println("\nPhone model: " + phone2.getModel());
+        System.out.println("frequemcy: " + phone2.getFreqeuncyMHz());
+        System.out.println("cores number: " + phone2.getCoresNumber());
+        System.out.println("camera megapixels: "+ phone2.getMegapixels());
 */
 
-        int temp;
-        for (int i = 0; i < a.length/2; i++)
-        {
-            temp = a[i];
-            a[i] = a[a.length-1-i];
-            a[a.length-1-i] = temp;
-        }
 
-        System.out.println(Arrays.toString(a));
+        Kettle kettle = new Kettle(1, 2.5f, "Green", "");
 
-
-        Arrays.sort(a);
-        System.out.println(Arrays.toString(a));
-
-        int n = Arrays.binarySearch(a, 62);
-        System.out.println(n >= 0 ? n : "No such element");
-
-        //b = a;
-        b = Arrays.copyOf(a, SIZE);
-        System.out.println(Arrays.toString(a));
-        System.out.println(Arrays.toString(b));
-
-        //b[0] = 100;
-
-        System.out.println(Arrays.toString(a));
-        System.out.println(Arrays.toString(b));
-
-        if (a == b)
-            System.out.println("Equal");
-
-        if (Arrays.equals(a, b))
-            System.out.println("Equal");
+        System.out.println(kettle);
 
     }
 }
